@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir Vicent</title>
+    <style>
+    /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Fundo e texto */
+body {
+    background-image: url('fundo-estrelas.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Camada escura para legibilidade */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Logotipo */
+.logo {
+    display: block;
+    margin: 30px auto 10px;
+    width: 180px;
+    height: auto;
+}
+
+/* Texto */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+main p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Botões principais */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.btn {
+    background-color: #FFD700;
+    color: #121212;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.btn:hover {
+    background-color: #e6c200;
+}
+
+/* Staff */
+.staff {
+    margin-top: 13px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.staff-btn {
+    margin-top: 10px;
+}
+
+/* Contagem regressiva */
+.countdown {
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 40px auto 10px;
+    padding: 20px 35px;
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    color: #FFD700;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* Centralizar o bloco de contagem */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Texto abaixo da contagem */
+.countdown-text {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #FFD700;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: underline;
+}
+</style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+            <img src="J4mAAAABklEQVQDAOOEKXces02QAAAAAElFTkSuQmCC.png" alt="Logotipo Noir Vicent" class="logo">
+    </header>
+
+    <main>
+        <section class="welcome">
+            <p>Seja Bem-vindo(a) ao Noir Vicent.</p>
+            <p>Você está a um passo de entrar no Noir Vicent, o seu novo destino para um grande baile. Preparamos o palco para muita dança, animação e a melhor vibe.</p>
+            <p>Estamos prontos para recebê-lo(a).</p>
+            <p>Todas as informações sobre a ceremônia e os horários estão disponíveis abaixo.</p>
+        </section>
+
+        <section class="buttons">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScESF8t_ouUOOSjXvZxXifvyjlfQZ2ei5pRc1PGL5ajtuSzVw/viewform?usp=publish-editor" class="btn">Confirme a tua presença</a>
+            <a href="info.html" class="btn">Informações do Baile</a>
+            <p>*Área somente para membros da Staff*</p>
+        </section>
+
+        <section class="staff">
+            <a href="https://myersx16.github.io/Noir-Vicent-2025/" class="btn staff-btn">Lista de convidados</a>
+        </section>
+        
+        <section class="countdown">
+            <p id="countdown"></p>
+        </section>
+        
+        <section class="welcome">
+            <p>Contagem regressiva para o grande dia</p>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text">Developed by <a href="https://wa.me/c/258874561914" target="_blank">Thx.16 Digital Studio</a></p>
+    </footer>
+
+    <script>
+        // Contagem regressiva
+        const countdownDate = new Date("Dec 13, 2025 12:00:00").getTime();
+        const countdownElement = document.getElementById("countdown");
+
+        const countdownFunction = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                countdownElement.innerHTML = "O baile começou!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+    </script>
+</body>
+</html>
