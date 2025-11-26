@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Staff - Noir Vicent</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #e6c200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+    input {
+            width: 90%;
+            padding: 6px;
+            margin: 6px 0;
+            border-radius: 6px;
+            background: #111;
+            border: 1px solid #e6c200;
+            color: #e6c675;
+            font-size: 15px;
+        }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background: gold;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .error {
+      margin-top: 10px;
+      color: #ff6961;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Staff Login</h2>
+    <input type="email" id="email" placeholder="Digite o email">
+    <input type="password" id="password" placeholder="Digite a senha">
+    <button id="btnLogin">Entrar</button>
+    <div class="error" id="msg"></div>
+  </div>
+
+  <script type="module">
+    // Importa os SDKs do Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } 
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // 🔥 CONFIGURAÇÃO FIREBASE
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkCgElrFjbRc-WQ7A2rRh_Ncx2Ffe2QI4",
+      authDomain: "noir-vicent.firebaseapp.com",
+      projectId: "noir-vicent",
+      storageBucket: "noir-vicent.firebasestorage.app",
+      messagingSenderId: "339381996402",
+      appId: "1:339381996402:web:3cfc311705c4ea6f64abeb"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById("btnLogin").addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const pass  = document.getElementById("password").value;
+      const msg   = document.getElementById("msg");
+
+      signInWithEmailAndPassword(auth, email, pass)
+        .then(() => {
+          msg.style.color = "#3CFD5E";
+          msg.innerHTML = "✔ Login com sucesso!";
+          setTimeout(() => {
+            window.location.href = "staff.html"; // Redireciona para staff
+          }, 800);
+        })
+        .catch((error) => {
+          msg.style.color = "#ff6961";
+          msg.innerHTML = "⚠ Email ou senha inválidos!";
+          console.error(error);
+        });
+    });
+  </script>
+
+</body>
+</html>
