@@ -41,7 +41,7 @@
             border-radius: 6px;
             background: #111;
             border: 1px solid #e6c200;
-            color: #e6c675;
+            color: #e6c200;
             font-size: 15px;
         }
 
@@ -63,13 +63,23 @@
         }
 
         button:hover {
-            background: #e6c675;
+            background: #e6c200;
             color: #000;
         }
 
         #mensagem {
             margin-top: 25px;
             font-size: 15px;
+        }
+    footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 12px;
+            opacity: .7;
+        }
+    a.whatsapp {
+            color: #e6c200;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -93,6 +103,13 @@
 
     <p id="mensagem"></p>
 </div>
+    
+    <footer>
+        Developed by 
+        <a class="whatsapp" href="https://wa.me/c/258874561914" target="_blank">
+            Thx.16 Digital Studio
+        </a>
+    </footer>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
