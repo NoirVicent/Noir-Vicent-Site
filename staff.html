@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noir Vicente 2025 – Lista de Convidados</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #f1c40f;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* LOGIN */
+    .login {
+      width: 90%;
+      max-width: 350px;
+      background: rgba(20,20,20,0.95);
+      border: 1px solid #f1c40f;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 0 20px rgba(241,196,15,0.4);
+      animation: fadeIn 0.8s ease;
+    }
+
+    /* CONTEÚDO (LISTA) */
+    .container {
+      display: none;
+      flex-direction: column;
+      width: 90%;
+      max-width: 450px;
+      background: rgba(20,20,20,0.95);
+      border: 1px solid #f1c40f;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(241,196,15,0.4);
+      animation: fadeIn 0.8s ease;
+      max-height: 90vh;
+    }
+
+    #guest-list {
+      margin-top: 10px;
+      overflow-y: auto;
+      max-height: 60vh;
+      padding-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(10px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    h1, h2 {
+      text-align:center;
+      margin: 5px 0;
+    }
+
+    input {
+      width:100%;
+      padding:10px;
+      border-radius:10px;
+      background: #111;
+      border:1px solid #f1c40f;
+      color:#fff;
+      margin-bottom:12px;
+    }
+
+    .guest {
+      background:#111;
+      border:1px solid #f1c40f;
+      border-radius:10px;
+      padding:10px;
+      margin-bottom:8px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .line {
+      display:flex;
+      justify-content:space-between;
+      font-size:0.9em;
+    }
+
+    .confirmed { color:#2ecc71; font-weight:bold; }
+    .pending { color:#e74c3c; font-weight:bold; }
+
+    button {
+      background: #f1c40f;
+      border:none;
+      padding:10px 15px;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+      width:100%;
+    }
+
+    .logo {
+      display:block;
+      margin:auto;
+      width:90px;
+      filter: drop-shadow(0 0 8px rgba(241,196,15,0.6));
+    }
+
+    .error {
+      color:#e74c3c;
+      text-align:center;
+      font-size:0.85em;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login" id="login-screen">
+    <img src="J4mAAAABklEQVQDAOOEKXces02QAAAAAElFTkSuQmCC.png" class="logo">
+    <h1>Noir Vicente 2025</h1>
+    <h2>Baile de Finalistas</h2>
+    <input type="password" id="password" placeholder="Senha Staff">
+    <p class="error" id="error-msg">Senha incorreta</p>
+    <button onclick="checkPassword()">Entrar</button>
+  </div>
+
+  <!-- LISTA -->
+  <div class="container" id="main-content">
+    <img src="J4mAAAABklEQVQDAOOEKXces02QAAAAAElFTkSuQmCC.png" class="logo">
+    <h1>Lista de Convidados</h1>
+
+    <input type="text" id="search" placeholder="Pesquisar nome...">
+
+    <div id="guest-list">
+      <!-- Exemplo (pode editar depois) -->
+      <div class="guest">
+  <div class="line"><span>Custódia Mucabel</span> <span>Código: ALE-001</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Daniel Djedje</span> <span>Código: ALE-001</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Málika Nhaca</span> <span>Código: ALE-001</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- ADE-002 -->
+<div class="guest">
+  <div class="line"><span>Etelvina Ngomane</span> <span>Código: ADE-002</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Francisco Sigaúque</span> <span>Código: ADE-002</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- AME-003 -->
+<div class="guest">
+  <div class="line"><span>Laura Matavele</span> <span>Código: AME-003</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Esmeraldo Matavele</span> <span>Código: AME-003</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- ARA-004 -->
+<div class="guest">
+  <div class="line"><span>Fidélia Nauaua</span> <span>Código: ARA-004</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Nauaua</span> <span>Código: ARA-004</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- BEY-006 -->
+<div class="guest">
+  <div class="line"><span>Melissa Ozibias</span> <span>Código: BEY-006</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Márcia Macário</span> <span>Código: BEY-006</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Eunice Pereira</span> <span>Código: BEY-006</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- BRE-007 -->
+<div class="guest">
+  <div class="line"><span>Amélia Leonardo</span> <span>Código: BRE-007</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Jorge Leonardo</span> <span>Código: BRE-007</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- CLE-008 -->
+<div class="guest">
+  <div class="line"><span>Odete Matusse</span> <span>Código: CLE-008</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Vilma Mosse</span> <span>Código: CLE-008</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Crisalda Mandjendje</span> <span>Código: CLE-008</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- CPM-008 -->
+<div class="guest">
+  <div class="line"><span>Jorge Monteiro</span> <span>Código: CPM-008</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- CAM-009 -->
+<div class="guest">
+  <div class="line"><span>Cartina Manuel</span> <span>Código: CAM-009</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Lúcio Pedro</span> <span>Código: CAM-009</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- DAU-010 -->
+<div class="guest">
+  <div class="line"><span>Dércio Mauai</span> <span>Código: DAU-010</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Dina Chicane</span> <span>Código: DAU-010</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- DOM-011 -->
+<div class="guest">
+  <div class="line"><span>Maria Chissano</span> <span>Código: DOM-011</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- DEL-012 -->
+<div class="guest">
+  <div class="line"><span>Ivandra Guerra</span> <span>Código: DEL-012</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Guilhermina Fernandes</span> <span>Código: DEL-012</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Ana Cristina</span> <span>Código: DEL-012</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<!-- DLT-013 -->
+<div class="guest">
+  <div class="line"><span>Ana Mabjaia</span> <span>Código: DLT-013</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Jeremias Mabjaia</span> <span>Código: DLT-013</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- DIV-014 -->
+<div class="guest">
+  <div class="line"><span>José Jorge</span> <span>Código: DIV-014</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Patronela José</span> <span>Código: DIV-014</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- DEN-015 -->
+<div class="guest">
+  <div class="line"><span>Salvador Chacha</span> <span>Código: DEN-015</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Mariacláudia Manhiça</span> <span>Código: DEN-015</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- DLC-016 -->
+<div class="guest">
+  <div class="line"><span>Carlota Chicote</span> <span>Código: DLC-016</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Óscar Chonzi</span> <span>Código: DLC-016</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- ELI-017 -->
+<div class="guest">
+  <div class="line"><span>Crizalda Sambo</span> <span>Código: ELI-017</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Custódio Ualane</span> <span>Código: ELI-017</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- ELT-019 -->
+<div class="guest">
+  <div class="line"><span>Inês Cossa</span> <span>Código: ELT-019</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Rodrigues Zimba</span> <span>Código: ELT-019</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- GUI-020 -->
+<div class="guest">
+  <div class="line"><span>Wilson Chirindza</span> <span>Código: GUI-020</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- GUL-021 -->
+<div class="guest">
+  <div class="line"><span>Édia Conjo</span> <span>Código: GUL-021</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Henriqueta José</span> <span>Código: GUL-021</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- GEO-022 -->
+<div class="guest">
+  <div class="line"><span>Bertil Martins</span> <span>Código: GEO-022</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Carmen Martins</span> <span>Código: GEO-022</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- INA-023 -->
+<div class="guest">
+  <div class="line"><span>Ismael Damão</span> <span>Código: INA-023</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Latifa Abdula</span> <span>Código: INA-023</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Sônia da Silva</span> <span>Código: INA-023</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Yanick Ismael</span> <span>Código: INA-023</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- JUV-024 -->
+<div class="guest">
+  <div class="line"><span>Nelia Langa</span> <span>Código: JUV-024</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>José Francisco</span> <span>Código: JUV-024</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- JUD-026 -->
+<div class="guest">
+  <div class="line"><span>Fernanda Avelino</span> <span>Código: JUD-026</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Hélio Félix</span> <span>Código: JUD-026</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- KEL-027 -->
+<div class="guest">
+  <div class="line"><span>Rui Matola</span> <span>Código: KEL-027</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Julia Mulungo</span> <span>Código: KEL-027</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- KIM-028 -->
+<div class="guest">
+  <div class="line"><span>Rosema Maria</span> <span>Código: KIM-028</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Janete Isabel</span> <span>Código: KIM-028</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Cândida Mondlane</span> <span>Código: KIM-028</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Lourino Guvande</span> <span>Código: KIM-028</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- KEY-029 -->
+<div class="guest">
+  <div class="line"><span>Patrício Palolite</span> <span>Código: KEY-029</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Márcia Chongola</span> <span>Código: KEY-029</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Karen Moio</span> <span>Código: KEY-029</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Catarina Ferreira</span> <span>Código: KEY-029</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Nádia Palolite</span> <span>Código: KEY-029</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<!-- LNA -->
+<div class="guest">
+  <div class="line"><span>Maria do Rosário</span> <span>Código: LNA</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Abrahamo Bacar</span> <span>Código: LNA</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- LIL-032 -->
+<div class="guest">
+  <div class="line"><span>Joalves Cuna</span> <span>Código: LIL-032</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Izélia Matsul</span> <span>Código: LIL-032</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- LUA-033 -->
+<div class="guest">
+  <div class="line"><span>Celina Bié</span> <span>Código: LUA-033</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Esmael Macaba</span> <span>Código: LUA-033</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- MAR-035 -->
+<div class="guest">
+  <div class="line"><span>Sónia Nhassengo</span> <span>Código: MAR-035</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Hélia Wate</span> <span>Código: MAR-035</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Lidiane Wate</span> <span>Código: MAR-035</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Amélia David</span> <span>Código: MAR-035</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- MAD-036 -->
+<div class="guest">
+  <div class="line"><span>Maria Macamo</span> <span>Código: MAD-036</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Mussá Lileza</span> <span>Código: MAD-036</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Maria Orlando</span> <span>Código: MAD-036</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Aysha Lileza</span> <span>Código: MAD-036</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Shaheem Lileza</span> <span>Código: MAD-036</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- SAM-037 -->
+<div class="guest">
+  <div class="line"><span>Vânia Niuaia</span> <span>Código: SAM-037</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Rosa Niuaia</span> <span>Código: SAM-037</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- SUZ-038 -->
+<div class="guest">
+  <div class="line"><span>Betty Adão</span> <span>Código: SUZ-038</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Celso Adão</span> <span>Código: SUZ-038</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- SHZ-039 -->
+<div class="guest">
+  <div class="line"><span>Douglass Simba</span> <span>Código: SHZ-039</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Carmen Mendes</span> <span>Código: SHZ-039</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Margarida Mendes</span> <span>Código: SHZ-039</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Ana Machava</span> <span>Código: SHZ-039</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- SHY-040 -->
+<div class="guest">
+  <div class="line"><span>Sénio Ussene</span> <span>Código: SHY-040</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Aziza Ussene</span> <span>Código: SHY-040</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Sheynase Ussene</span> <span>Código: SHY-040</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- SHA-041 -->
+<div class="guest">
+  <div class="line"><span>Alfredo Tondo</span> <span>Código: SHA-041</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Adelaide Macuacua</span> <span>Código: SHA-041</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- THI-042 -->
+<div class="guest">
+  <div class="line"><span>Ana Paula</span> <span>Código: THI-042</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Nicole Rosa</span> <span>Código: THI-042</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Nurja Yunara</span> <span>Código: THI-042</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Ivan Augusto</span> <span>Código: THI-042</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+<!-- YEK-043 -->
+<div class="guest">
+  <div class="line"><span>Timóteo Bene</span> <span>Código: YEK-043</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+<div class="guest">
+  <div class="line"><span>Zita Ernesto</span> <span>Código: YEK-043</span></div>
+  <div class="line"><span class="pending">Pendente</span> <span>Mesa: -</span></div>
+</div>
+
+    </div>
+  </div>
+
+<script>
+  const passInput = document.getElementById("password");
+  const loginScreen = document.getElementById("login-screen");
+  const mainContent = document.getElementById("main-content");
+  const errorMsg = document.getElementById("error-msg");
+  const guestList = document.getElementById("guest-list");
+  const searchInput = document.getElementById("search");
+
+  function checkPassword(){
+    const correct = "STAFFNV12";
+    if(passInput.value === correct){
+      loginScreen.style.display = "none";
+      mainContent.style.display = "flex";
+    } else {
+      errorMsg.style.display = "block";
+    }
+  }
+
+  searchInput.addEventListener("keyup",()=>{
+    const filter = searchInput.value.toLowerCase();
+    const cards = guestList.querySelectorAll(".guest");
+    cards.forEach(card=>{
+      const name = card.querySelector(".line span").textContent.toLowerCase();
+      card.style.display = name.includes(filter) ? "block" : "none";
+    });
+  });
+</script>
+
+</body>
+</html>
